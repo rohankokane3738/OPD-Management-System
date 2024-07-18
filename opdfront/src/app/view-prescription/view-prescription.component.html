@@ -1,0 +1,29 @@
+<div class="container">
+    
+    <h1 class="text-center" style="color: white;">Prescription Details</h1>
+    Your Appointment No 
+    <select class="form-control" name="selap" [(ngModel)]="selap" (change)="showpre()">
+<option>--select--</option>
+<option *ngFor="let an of a">
+    {{an.aid}}
+</option>
+    </select>
+    <br>
+    <table class="table table-bordered" style="background-color: white;">
+        <thead>
+            <tr>
+                <th>Prescription Id</th>
+                <th>Medicine</th>
+                <th>Suggestion</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of p">
+                <td>{{x.prid}}</td>
+                <td>{{x.medicine}}</td>
+                <td>{{x.suggestion}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

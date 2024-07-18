@@ -1,0 +1,50 @@
+<div class="container">
+    select case paper
+    <select name="cid" class="form-control" [(ngModel)]="selc" (change)="showdetails()">
+        <option *ngFor="let c of cp">{{c.cid}}</option>
+    </select>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <h4 class="btn btn-danger">Appointment Id: {{selcase.aid}}</h4>
+            <h3>Patient Details</h3>
+            <h4>
+            Name : {{pt.name}}<br><br>
+            Age : {{pt.age}} <br><br>
+            Gender : {{pt.gender}}
+        </h4>
+        <h3>Case Paper</h3>
+        <h4>
+            complain : {{selcase.complain}}<br><br>
+            BP : {{selcase.bp}}<br><br>
+            Sugar : {{selcase.sugar}}<br><br>
+            SpO2 : {{selcase.spo}}
+        </h4>
+        </div>
+        <div class="col-sm-8">
+            <h1 class="text-center">Add presciption</h1>
+            <form (ngSubmit)="submitdata()">
+
+                <div class="form">
+                    <div class="form-group">
+                    <label for="medicine">Medicine:</label>
+                    <textarea class="form-control" name="medicine" id="medicine" [(ngModel)]="pc.medicine">
+                        </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="suggestion">Suggestion:</label>
+                    <textarea class="form-control" id="suggestion" name="suggestion" [(ngModel)]="pc.suggestion">
+                        </textarea>
+                  </div>
+                              <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+              </form>
+            
+
+
+        </div>
+    </div>
+
+
+    </div>
+

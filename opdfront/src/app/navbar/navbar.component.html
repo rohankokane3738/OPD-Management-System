@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" routerLink="/">Rahat OPD</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <div [ngSwitch]="usertype">
+        <ul class="nav navbar-nav" *ngSwitchCase="'guest'">
+          <li class="active"><a routerLink="/">Home</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/faci">Facilities</a></li>
+          <li><a routerLink="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a routerLink="/log"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a routerLink="/alog"><span class="glyphicon glyphicon-log-in"></span>Admin Login</a></li>
+        </ul>
+        <ul class="nav navbar-nav" *ngSwitchCase="'user'">
+          <li class="active"><a routerLink="/">Home</a></li>
+          <li><a routerLink="/contact">Contact Us</a></li>
+          <li><a routerLink="/faci">Facilities</a></li>
+          <li><a routerLink="/app">Appointment</a></li>
+          <li><a routerLink="/vapp">Appointment status</a></li>
+          <li><a routerLink="/vpre">View Prescription</a></li>
+            <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        
+        </ul>
+        <ul class="nav navbar-nav" *ngSwitchCase="'admin'">
+          <li class="active"><a routerLink="/">Home</a></li>
+           <li><a routerLink="/vapps">Appointments</a></li>
+          <li><a routerLink="/cp">Case Paper</a></li>
+          <li><a routerLink="/addpre">Add Prescription</a></li>
+            <li><a (click)="alogout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        
+        </ul>
+      </div>
+      </div>
+    </div>
+  </nav>

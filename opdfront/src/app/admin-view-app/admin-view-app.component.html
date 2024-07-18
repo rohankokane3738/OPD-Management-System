@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-center">All Appointments</h1>
+    <table class="table table-bordered" style="background-color: white;">
+        <thead>
+            <tr>
+                <th>Appointment Id</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of a">
+                <td>{{x.aid}}</td>
+                <td>{{x.dt}}</td>
+                <td>{{x.tm}}</td>
+                <td>{{x.status}}</td>
+                <td><a class="btn btn-primary" (click)="change(x.aid)">Approve</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

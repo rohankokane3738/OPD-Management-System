@@ -1,0 +1,64 @@
+<div class="container-fluid">
+<h1 class="text-center text-warning">Case Paper</h1>    
+Select Appointment id: 
+<select class="form-control" [(ngModel)]="selap" (change)="showdetails()">
+
+<option *ngFor="let ap of a" value="{{ap.aid}}">{{ap.aid}}</option>
+</select>
+<br>
+<div class="row">
+    <div class="col-sm-4">
+    <h4>Patient Details</h4>
+    <table class="table table-bordered" [cellPadding]="10">
+        <tr>
+            <th>Name:</th>
+            <td>{{pt.name}}<br></td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>{{pt.address}}</td>
+        </tr>
+        <tr>
+            <th>Gender:</th>
+            <td>{{pt.gender}}</td>
+        </tr>
+        <tr>
+            <th>Age:</th>
+            <td>{{pt.age}}</td>
+        </tr>
+    </table>
+    
+
+    </div>
+    <div class="col-sm-8">
+        <form (ngSubmit)="submitdata()">
+
+            <div class="form">
+            <h1 align="center">Add case paper</h1>
+                <div class="form-group">
+                <label for="Complain">Complain:</label>
+                <input type="text" class="form-control" name="complain" id="cp" [(ngModel)]="cp.complain">
+              </div>
+              <div class="form-group">
+                <label for="bp">BP:</label>
+                <input type="text" class="form-control" id="bp" name="bp" [(ngModel)]="cp.bp">
+              </div>
+              <div class="form-group">
+                <label for="sugar">Sugar:</label><br>
+                <input type="text" name="sugar" id="sugar"  [(ngModel)]="cp.sugar">
+              
+              </div>
+              <div class="form-group">
+                <label for="spo">SpO2:</label>
+                <input type="text" class="form-control" name="spo" id="spo" [(ngModel)]="cp.spo">
+              </div>
+                          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+          </form>
+        
+          
+    </div>
+</div>
+<br>
+
+</div>

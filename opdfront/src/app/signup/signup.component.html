@@ -1,0 +1,87 @@
+<form #regForm="ngForm" (ngSubmit)="submitdata(regForm)">
+
+    <div class="col-sm-8 col-sm-offset-2" >
+    <h1 align="center">Register Here</h1>
+        <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" #name="ngModel" ngModel id="nm" [(ngModel)]="p.name" required pattern="[a-zA-Z]+">
+        <div *ngIf="!name.valid" style="color: red;">
+          <div *ngIf="name.errors?.['required']">
+           Name is required
+          </div>
+          <div *ngIf="name.errors?.['pattern']">
+            Name can contain only alphabets
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <textarea class="form-control" id="ad" name="address" #address="ngModel" ngModel="" [(ngModel)]="p.address" required></textarea>
+        <div *ngIf="!address.valid" style="color: red;">
+          <div *ngIf="address.errors?.['required']">
+           Address is required
+          </div>
+          
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender:</label><br>
+        <input type="radio" name="gender" #gender="ngModel" ngModel required id="gender" value="Male" [(ngModel)]="p.gender">Male <br>
+        <input type="radio" name="gender" id="gender" value="Female" [(ngModel)]="p.gender">Female <br>
+        <div *ngIf="!gender.valid" style="color: red;">
+          <div *ngIf="gender.errors?.['required']">
+           Gender is required
+          </div>
+          
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="text" class="form-control" name="age"#age="ngModel" ngModel required pattern="[0-9]+" id="ag" [(ngModel)]="p.age">
+        <div *ngIf="!age.valid" style="color: red;">
+          <div *ngIf="age.errors?.['required']">
+           Age is required
+          </div>
+          <div *ngIf="age.errors?.['pattern']">
+            Age can contain only numbers in between 1 to 100
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact:</label>
+        <input type="text" class="form-control" name="contact" #contact="ngModel" ngModel  id="cn" [(ngModel)]="p.contact" pattern="[0-9]{10}" required>
+        <div *ngIf="!contact.valid" style="color: red;">
+          <div *ngIf="contact.errors?.['required']">
+       contact is required
+          </div>
+          <div *ngIf="contact.errors?.['pattern']">
+        Contact can contain only 10 digits
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" #email="ngModel" ngModel class="form-control" name="email" id="email" [(ngModel)]="p.email" required>
+      <div *ngIf="!email.valid" style="color: red;">
+        <div *ngIf="email.errors?.['required']">
+         Email is required
+        </div>
+      
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" #password="ngModel" ngModel name="password" id="pwd" [(ngModel)]="p.password" required>
+      <div *ngIf="!password.valid" style="color: red;">
+        <div *ngIf="password.errors?.['required']">
+       Password is required
+        </div>
+        
+      </div>
+
+    </div>
+   
+    <button type="submit" class="btn btn-default">Submit</button>
+</div>
+  </form>
+
